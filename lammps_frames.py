@@ -8,7 +8,7 @@
 #
 # USAGE: In LAMMPS job directory: python lammps_frames.py {-l log_file} {-d dump_file} {-n num_frames}
 #
-# Acceptable sort_method values: energy, time
+# NOTE: The larger your Lammps dump file is, the longer this script will take. It can take a couple of minutes.
 #
 #####
 
