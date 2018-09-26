@@ -17,18 +17,27 @@ from operator import itemgetter
 
 path = os.getcwd()
 
-output_file = [f for f in os.listdir(path) if re.search(r'(.+).o([0-9]+)', f)][-1]
-print('LAMMPS Output File: {}'.format(str(output_file)))
-
-dump_file = [f for f in os.listdir(path) if re.search(r'dump.(.+).lammpstrj', f)][0]
-print('LAMMPS Dump File: {}'.format(str(dump_file)))
-
 parser = argparse.ArgumentParser()
 parser.add_argument('--sort_method', '-s', default='time', choices=['time','energy'], help='Frame sort method.')
 parser.add_argument('--num_frames', '-n', default=10, help='Number of frames.')
+parser.add_argument('--log_file', '-l', default=None, help='Log file name.')
+parser.add_argument('--dump_file', '-d', default=None, help='Dump file name.')
+
 args = parser.parse_args()
 sort_method = args.sort_method
 num_frames = args.num_frames
+log_file = args.log_file
+dump_file = args.dump_file
+
+
+if log_file is None:
+    log_file = [f for f in os.listdir(path) if re.search(r'log.(.+)', f) and f != 'log.lammps'][-1]
+
+if dump_file is None:
+    dump_file = [f for f in os.listdir(path) if re.search(r'dump.(.+).lammpstrj', f)][0]
+
+print('LAMMPS Output File: {}'.format(str(log_file)))
+print('LAMMPS Dump File: {}'.format(str(dump_file)))
 
 
 def read_output(output_fn, production_start='2000000'):
