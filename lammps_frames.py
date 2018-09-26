@@ -37,14 +37,14 @@ print('LAMMPS Output File: {}'.format(str(log_file)))
 print('LAMMPS Dump File: {}'.format(str(dump_file)))
 
 
-def read_output(output_fn, production_start='2000000'):
-    output_file = open(output_fn, 'r')
+def read_output(log_fn, production_start='2000000'):
+    log_file = open(log_fn, 'r')
     section = ''
     subsection = ''
 
     production_data = []
 
-    for line in output_file:
+    for line in log_file:
 
         if line.startswith('------------ beginning nvt ----------------------------------'):
             section = 'nvt'
@@ -69,11 +69,11 @@ def read_output(output_fn, production_start='2000000'):
                 row = line.rstrip('\n').split()
                 production_data.append([row[0],row[3]])
 
-    output_file.close()
+    log_file.close()
 
     return production_data
 
-prod_energies = read_output(output_file)       
+prod_energies = read_output(log_file)       
 
 def sort_energies(prod_energies, num_frames):
     df = len(prod_energies)/num_frames
