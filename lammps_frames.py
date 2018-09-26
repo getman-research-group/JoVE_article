@@ -6,7 +6,7 @@
 # Getman Research Group
 # 26 September 2018
 #
-# USAGE: In LAMMPS job directory: lammps_frames.py {-l log_file} {-d dump_file} {-s sort_method} {-n num_frames}
+# USAGE: In LAMMPS job directory: lammps_frames.py {-l log_file} {-d dump_file} {-n num_frames}
 #
 # Acceptable sort_method values: energy, time
 #
@@ -18,17 +18,14 @@ from operator import itemgetter
 path = os.getcwd()
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--sort_method', '-s', default='time', choices=['time','energy'], help='Frame sort method.')
 parser.add_argument('--num_frames', '-n', default=10, help='Number of frames.')
 parser.add_argument('--log_file', '-l', default=None, help='Log file name.')
 parser.add_argument('--dump_file', '-d', default=None, help='Dump file name.')
 
 args = parser.parse_args()
-sort_method = args.sort_method
 num_frames = args.num_frames
 log_file = args.log_file
 dump_file = args.dump_file
-
 
 if log_file is None:
     log_file = [f for f in os.listdir(path) if re.search(r'log.(.+)', f) and f != 'log.lammps'][-1]
@@ -78,23 +75,14 @@ def read_output(output_fn, production_start='2000000'):
 
 prod_energies = read_output(output_file)       
 
-def sort_energies(prod_energies, sort_method, num_frames):
+def sort_energies(prod_energies, num_frames):
     df = len(prod_energies)/num_frames
-    if sort_method == 'time':
-        frames = [];
-        for i in range(0,num_frames):
-            frames.append(prod_energies[int(df*(i+0.5)-1)][0])
-    elif sort_method == 'energy':
-        sort_energy = sorted(prod_energies, key=itemgetter(1))
-        frames = [];
-        for i in range(0,num_frames):
-            frames.append(sort_energy[int(df*(i+0.5)-1)][0])
-    else:
-        print('ERROR: Incorrect sort method.')
-        return
+    frames = [];
+    for i in range(0,num_frames):
+        frames.append(prod_energies[int(df*(i+0.5)-1)][0])
     return frames
 
-frame_nums = sort_energies(prod_energies,sort_method,num_frames)
+frame_nums = sort_energies(prod_energies,num_frames)
 
 print('Creating files for the following trajectory timesteps: {}'.format(frame_nums))
 
