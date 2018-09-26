@@ -7,7 +7,7 @@ boundary        	p p p
 
 
 #### change variable value as needed in your own system ####
-variable			name string coh	
+variable			name string job_name	
 variable			temp equal 300.0	
 variable			press equal 1.0	
 variable			tcoupl equal 100.0	
@@ -36,7 +36,7 @@ group           	slab type 1 2 3 4
 
 
 pair_style      	lj/cut/coul/long 7.0
-# pair_modify		tail yes  # Do not use tail if you have samll cell
+# pair_modify		tail yes  # Do not use tail if you have small cell
 kspace_style		pppm 1.0e-6
 
 
