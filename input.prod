@@ -6,7 +6,7 @@ units           	real
 boundary        	p p p
 
 #### change variable value as needed in your own system ####
-variable			name string coh
+variable			name string job_name
 variable			temp equal 300.0
 variable			press equal 1.0
 variable			tcoupl equal 100.0
