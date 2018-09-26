@@ -6,7 +6,7 @@
 # Getman Research Group
 # 26 September 2018
 #
-# USAGE: In LAMMPS job directory: lammps_frames.py output_file dump_file sort_method num_frames
+# USAGE: In LAMMPS job directory: lammps_frames.py {-l log_file} {-d dump_file} {-s sort_method} {-n num_frames}
 #
 # Acceptable sort_method values: energy, time
 #
