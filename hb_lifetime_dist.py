@@ -3,7 +3,7 @@
 # based on TJ's HB calculation code
 # Xiaohong Zhang
 # Getman Research Group
-# 25/06/2018
+# 06/25/2018
 
 import string,sys
 import math
