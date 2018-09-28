@@ -20,7 +20,7 @@ import warnings
 
 
 actualStart = 0         # if dump file not start at 0
-timestep = 100           # in the original data, the minimum time span between two frames
+timestep = 10           # in the original data, the minimum time span between two frames
 N_first = 0             # the beginning time which computation starts, absolute time 
 N_last  = 5000000       # the end time which computation finishes
 nevery = 1              # print every this many snapshots 
