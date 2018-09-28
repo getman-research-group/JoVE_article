@@ -11,8 +11,8 @@ variable			temp equal 300.0
 variable			press equal 1.0
 variable			tcoupl equal 100.0
 variable			pcoupl equal 5000.0
-variable			dumpFreq equal 100.0	
-variable			thermFreq equal 100.0	
+variable			dumpFreq equal 10.0	
+variable			thermFreq equal 10.0	
 variable			runStep	equal 5000000
 
 
