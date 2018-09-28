@@ -20,7 +20,7 @@ import warnings
 
 
 actualStart = 0         # if dump file not start at 0
-timestep = 10           # in the original data, the minimum time span between two frames
+timestep = 100           # in the original data, the minimum time span between two frames
 N_first = 0             # the beginning time which computation starts, absolute time 
 N_last  = 5000000       # the end time which computation finishes
 nevery = 1              # print every this many snapshots 
@@ -29,11 +29,11 @@ frameLine = 203         # the number of lines between two "ITEM:TIMESTEP", i.e. 
 warnings.simplefilter("ignore")
 
 ############## sepcify atom type from data file ########################################                                                                                     ################                                                                      
-rC = [2]                                                                                                           ################                                                       
+rC = [5]                                                                                                           ################                                                       
 rHS = [3,4]                                                                                                            ################                                                      
-rOS = [4]                                                                                                              ################                                                    
-rHW = [5]                                                                                                                ################                                                  
-rOW = [6]                                                                                                                ################      
+rOS = [6]                                                                                                              ################                                                    
+rHW = [1]                                                                                                                ################                                                  
+rOW = [2]                                                                                                                ################      
 #################################################################################################
 ################################################################################################################
 
