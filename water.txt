@@ -1,0 +1,7 @@
+3
+O  1
+H  1 0.9572
+H  1 0.9572  2 104.52
+
+
+TIP3P water model parameters used

@@ -1,0 +1,30 @@
+Falling particles (1 or 0): 1
+Resubmit (1 or 0): 0
+Write LAMMPS file (1 or 0): 0
+LAMMPS file extension: .water
+Input POSCAR name: Pt_test_new.POSCAR
+Number of different types of surface atoms: 1
+
+Move attempt termination limit: 50
+Maximum scaling factor: 1.0
+Minimum scaling factor: 1.0
+Minimum z-coordinate: 5.5
+Maximum z-coordinate: 20.5
+
+Move probabilities [%]
+Translation: 100
+Rotation: 0
+Bond angle perturbation: 0
+
+Temperature [K]: 300
+Anneal (1 or 0): 0
+Initial temperature [K]: 1000
+Begin at iteration: 0
+End at iteration: 800
+Max iterations: 5
+Maximum translation distance [A]: 1
+
+Number of different types of fluid molecules: 1
+24 water.txt
+
+
