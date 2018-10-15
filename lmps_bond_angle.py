@@ -2,10 +2,6 @@
 
 import sys
 
-# inPOSCAR = '/Users/cbodensc/Desktop/h5o2_box.POSCAR'
-# out_data = '/Users/cbodensc/Desktop/h5o2_box.bonds_angles_info.txt'
-
-# inPOSCAR = sys.argv[1]
 inPOSCAR = 'POSCAR'
 out_data = inPOSCAR + '.bond_angle_info.txt'
 
@@ -27,9 +23,6 @@ def read_poscar(inPOSCAR):
         if line_count == 2:
             section = 'multiplier'
             multiplier = line.strip('\n').split()
-#            x_vec = file_poscar.next().strip('\n').split()
-#            y_vec = file_poscar.next().strip('\n').split()
-#            z_vec = file_poscar.next().strip('\n').split()
             x_vec = next(file_poscar).strip('\n').split()
             y_vec = next(file_poscar).strip('\n').split()
             z_vec = next(file_poscar).strip('\n').split()
