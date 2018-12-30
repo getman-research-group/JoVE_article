@@ -2,7 +2,7 @@ Falling particles (1 or 0): 1
 Resubmit (1 or 0): 0
 Write LAMMPS file (1 or 0): 0
 LAMMPS file extension: .data
-Input POSCAR name: POSCAR
+Input POSCAR name: CONTCAR
 Number of different types of surface atoms: 1
 
 Move attempt termination limit: 50
