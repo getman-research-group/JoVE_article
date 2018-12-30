@@ -6,6 +6,11 @@ import matplotlib.pyplot as plt
 
 log_filename = sys.argv[1]
 
+equilibration_time = 2   # ns
+log_write_freq = 1000    # write Lz to log file every 1000 timesteps
+
+first_production_Lz = equilibration_time * 1000000 / log_write_freq + 1
+
 def read_log(log_filename):
     log_file = open(log_filename,'r')
     section = ''
@@ -129,6 +134,7 @@ plt.savefig('npt_plot.png')
 plt.close(fig)
 
 with open('avg_lz.txt','w+') as f:
-    f.write('The average Lz is: %.16f' % np.mean(np.array(y[2001:])))
+    f.write('The average Lz is: %.16f' % np.mean(np.array(y[first_production_Lz:])))
+    f.write('The Lz st.dev. is: %.16f' % np.stdev(np.array(y[first_production_Lz:])))
 
 
