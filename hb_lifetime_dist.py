@@ -24,7 +24,6 @@ timestep = 10           # in the original data, the minimum time span between tw
 N_first = 0             # the beginning time which computation starts, absolute time 
 N_last  = 5000000       # the end time which computation finishes
 nevery = 1              # print every this many snapshots 
-width = 200000          # the time span which computation uses, test 50ps lifetime
 frameLine = 203         # the number of lines between two "ITEM:TIMESTEP", i.e. atom# + 9
 warnings.simplefilter("ignore")
 
@@ -92,8 +91,8 @@ def init(items):
                    do2h2 = dist(o2[j],h2[l])
                    if do2h2<=1.2:
                         do1h2 = dist(o1[i] , h2[l])
-                        A1 = ang( do1o2 , do2h2, do1h2)
-                        A2 = ang( do2h2 , do1h2, do1o2)
+                        A1 = ang( do1o2, do2h2, do1h2)
+                        A2 = ang( do2h2, do1h2, do1o2)
                         # if A2>=120:  
                         if A1<=30 and A2>=120 and do1h2<=6.25:
                             for n in range(len(h2)):
@@ -105,8 +104,8 @@ def init(items):
                    if do1h1<=1.2:
                         do2h1 = dist(o2[j] , h1[l])
                         # print do1h1,do1o2,do2h1
-                        A1 = ang( do1o2 , do1h1, do2h1 )
-                        A2 = ang( do1h1 ,do2h1, do1o2 )
+                        A1 = ang( do1o2, do1h1, do2h1 )
+                        A2 = ang( do1h1, do2h1, do1o2 )
                         # if  A2>=120:
                         if  A1<=30 and A2>=120 and do2h1<=6.25:
                             for m in range(len(h2)):
