@@ -63,7 +63,7 @@ def read_output(log_fn, production_start='2000000'):
             continue
 
         if section is 'nvt' and subsection is 'production':
-            if line.startswith('[node') or line.startswith(' [node'):
+            if line.startswith('[node') or line.startswith(' [node') or line.startswith('WARNING'):
                 continue
             else:
                 row = line.rstrip('\n').split()
