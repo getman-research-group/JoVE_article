@@ -20,11 +20,11 @@ import warnings
 
 
 actualStart = 0         # if dump file not start at 0
-timestep = 10           # in the original data, the minimum time span between two frames
-N_first = 0             # the beginning time which computation starts, absolute time 
+timestep = 1000           # in the original data, the minimum time span between two frames
+N_first = 2000000             # the beginning time which computation starts, absolute time 
 N_last  = 5000000       # the end time which computation finishes
 nevery = 1              # print every this many snapshots 
-frameLine = 203         # the number of lines between two "ITEM:TIMESTEP", i.e. atom# + 9
+frameLine = 210         # the number of lines between two "ITEM:TIMESTEP", i.e. atom# + 9
 warnings.simplefilter("ignore")
 
 ############## sepcify atom type from data file ########################################                                                                                     ################                                                                      
@@ -228,6 +228,7 @@ def mean_confidence_interval(data, confidence=0.95):
 
 def get_dist_parameter(myFrame):
     words = [None]*9
+
     for l in range(len(myFrame[5])):
         words[l] = myFrame[5][l]
     if (len(myFrame[5]) == 2):
@@ -246,7 +247,6 @@ def get_dist_parameter(myFrame):
 def compute_hb_dict(one_frame):  
 
     frameTime = int(one_frame[1][0])
-    print frameTime
     N = int(one_frame[3][0])
     items = [ None] * N
     one_hb_dict = []
@@ -257,11 +257,11 @@ def compute_hb_dict(one_frame):
     #print(one_hb_dict)
     # o_list is Oxygen in each frame
     o_list = [item[0] for item in one_hb_dict]  # change [(30, 59, 56), (31, 58, 55)...] to [30, 31 ...]
-    for key in hb_dict.keys():  # first comprasion, remove the key when hb breaks
-            if key not in o_list:
-                if hb_dict[key] > 0: # if value > 0
-                    hb_distribution.append(hb_dict[key])
-                hb_dict.pop(key)  # delete this element
+    for i in list(hb_dict):  # first comprasion, remove the key when hb breaks
+            if i not in o_list:
+                if hb_dict[i] > 0: # if value > 0
+                    hb_distribution.append(hb_dict[i])
+                hb_dict.pop(i)  # delete this element
     if len(o_list) > 0: # if not empty
         for i in range(len(o_list)):  # second comprasion, add new or update existing hb
             if o_list[i] in hb_dict.keys():
@@ -287,8 +287,8 @@ if __name__ == '__main__':
     print(myfile)
 
     for line in fileinput.input("%s" %(str(myfile))):
-        if (fileinput.lineno() >= frameLine*(N_first-actualStart)/timestep+1 and fileinput.lineno() <= frameLine*((N_last-actualStart)/timestep+1)):
-            if ((fileinput.lineno()-1)/frameLine%nevery == 0):
+        if (fileinput.lineno() >= frameLine*(N_first-actualStart)//timestep+1 and fileinput.lineno() <= frameLine*((N_last-actualStart)//timestep+1)):
+            if ((fileinput.lineno()-1)//frameLine%nevery == 0):
                 wholeline = line.split()   # split the line on runs of whitespace
                 words = [s for s in wholeline if s != None]
                 frame.append(words)
@@ -311,8 +311,8 @@ if __name__ == '__main__':
     #print(m_distribution, h_distribution)
     # keep the output finally
     np.savetxt("distribution_HB_lifetime.dat", hb_distribution, fmt="%d")
-    f = open('avg_HB_lifetime.dat', 'w')
-    f.write('   '.join((m_distribution, h_distribution)))
+#    f = open('avg_HB_lifetime.dat', 'w')
+#    f.write('   '.join((m_distribution, h_distribution)))
 #########################################################################################################################################################
 
 
