@@ -2,7 +2,8 @@
 
 import sys
 
-inPOSCAR = 'POSCAR'
+# inPOSCAR = 'POSCAR'
+inPOSCAR = sys.argv[1]
 out_data = inPOSCAR + '.bond_angle_info.txt'
 
 def read_poscar(inPOSCAR):
