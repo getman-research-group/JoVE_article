@@ -3,7 +3,16 @@
 import sys
 
 # inPOSCAR = 'POSCAR'
-inPOSCAR = sys.argv[1]
+# inPOSCAR = sys.argv[1]
+
+if len(sys.argv) < 2:
+    inPOSCAR = 'POSCAR'
+elif len(sys.argv) == 2:
+    inPOSCAR = sys.argv[1]
+else:
+    print('ERROR: Too many command line arguments specified.')
+    sys.exit()
+
 out_data = inPOSCAR + '.bond_angle_info.txt'
 
 def read_poscar(inPOSCAR):
