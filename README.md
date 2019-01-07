@@ -20,4 +20,4 @@ All provided Python scripts were developed and tested using Python version 3.6.
 
 <h2> Example Files </h2>
 
-Example files for COH* adsorbate on a Pt(111) surface are supplied in the Example_Files directory. These include a LAMMPS data file, an input.equil file for a LAMMPS NPT simulation, and an input.prod file for a LAMMPS NVT simulation.
+Example LAMMPS files for a COH* adsorbate on a Pt(111) surface with 48 water molecules are supplied in the Example_Files directory. These include a data file, an input.equil file for an NPT simulation, and an input.prod file for an NVT simulation.
