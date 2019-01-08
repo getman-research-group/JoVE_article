@@ -1,4 +1,4 @@
-# Supporting files and scripts for JoVE article.
+# Files and scripts for JoVE article.
 
 <h2> MCPliQ </h2>
 
