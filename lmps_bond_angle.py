@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 
+#####
+# 
+# Cameron Bodenschatz
+# Getman Research Group
+# 26 September 2018
+#
+# USAGE: In LAMMPS job directory: python lmps_bond_angle.py [$filename.POSCAR]
+#
+#####
+
 import sys
 
 # inPOSCAR = 'POSCAR'
