@@ -28,11 +28,11 @@ frameLine = 210         # the number of lines between two "ITEM:TIMESTEP", i.e. 
 warnings.simplefilter("ignore")
 
 ############## sepcify atom type from data file ########################################
-rC = [5]     # Atom type(s) for carbon atom in the adsorbate
-rHS = [3,4]  # Atom type(s) for hydrogen atoms in the adsorbate
-rOS = [6]    # Atom type(s) for oxygen atoms in the adsorbate
-rHW = [1]    # Atom type(s) for hydrogen atoms in water
-rOW = [2]    # Atom type(s) for oxygen atoms in water
+rC = [2]     # Atom type(s) for carbon atom in the adsorbate
+rOS = [3]    # Atom type(s) for oxygen atoms in the adsorbate
+rHS = [4,5]  # Atom type(s) for hydrogen atoms in the adsorbate
+rOW = [6]    # Atom type(s) for oxygen atoms in water
+rHW = [7]    # Atom type(s) for hydrogen atoms in water
 ########################################################################################
 
 def dist(X,Y): # square of distance
