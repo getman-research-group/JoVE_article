@@ -4,7 +4,7 @@
 # Xiaohong Zhang
 # Getman Research Group
 # 06/25/2018
-
+#USAGE: in LAMMPS job directory: python hb_lifetime_dist.py
 import string,sys
 import math
 import os
