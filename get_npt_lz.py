@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 
+#####
+# 
+# Cameron Bodenschatz
+# Getman Research Group
+# 26 September 2018
+#
+# USAGE: In LAMMPS job directory: python get_npt_lz.py log.myadsorbate
+#
+#####
+
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
