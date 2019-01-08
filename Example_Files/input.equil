@@ -7,7 +7,7 @@ boundary            p p p
 
 
 #### change variable value as needed in your own system ####
-variable            name string coh
+variable            name string ch2oh
 variable            temp equal 300.0
 variable            press equal 1.0
 variable            tcoupl equal 100.0
@@ -31,8 +31,8 @@ read_data           data.${name}
 # restart             10000 restart.${name}.*
 # read_restart        restart.${name}.*
 
-group               water type 5 6
-group               slab type 1 2 3 4 
+group               water type 6 7
+group               slab type 1 2 3 4 5
 
 
 pair_style          lj/cut/coul/long 7.0
