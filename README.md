@@ -22,4 +22,4 @@ All provided Python scripts were developed and tested using Python version 3.6.
 
 Example LAMMPS files for a CH2OH* adsorbate on a Pt(111) surface with 24 water molecules are supplied in the Example_Files directory. These include a data file, an input.equil file for an NPT simulation, and an input.prod file for an NVT simulation.
 
-Note that since the CH2OH* adsorbate is held fixed during the LAMMPS simulations, the bonds and angles within the adsorbate and the corresponding bond and angle force field parameters are not defined in these files.
+Note: Since the CH2OH* adsorbate is held fixed during the LAMMPS simulations, the bonds and angles within the adsorbate and the corresponding bond and angle force field parameters are not defined in these files.
