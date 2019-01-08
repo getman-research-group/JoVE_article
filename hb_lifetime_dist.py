@@ -20,21 +20,20 @@ import warnings
 
 
 actualStart = 0         # if dump file not start at 0
-timestep = 1000           # in the original data, the minimum time span between two frames
-N_first = 2000000             # the beginning time which computation starts, absolute time 
+timestep = 1000         # in the original data, the minimum time span between two frames
+N_first = 2000000       # the beginning time which computation starts, absolute time 
 N_last  = 5000000       # the end time which computation finishes
 nevery = 1              # print every this many snapshots 
-frameLine = 210         # the number of lines between two "ITEM:TIMESTEP", i.e. atom# + 9
+frameLine = 210         # the number of lines between two "ITEM:TIMESTEP", i.e. # of atoms + 9
 warnings.simplefilter("ignore")
 
-############## sepcify atom type from data file ########################################                                                                                     ################                                                                      
-rC = [5]                                                                                                           ################                                                       
-rHS = [3,4]                                                                                                            ################                                                      
-rOS = [6]                                                                                                              ################                                                    
-rHW = [1]                                                                                                                ################                                                  
-rOW = [2]                                                                                                                ################      
-#################################################################################################
-################################################################################################################
+############## sepcify atom type from data file ########################################
+rC = [5]     # Atom type(s) for carbon atom in the adsorbate
+rHS = [3,4]  # Atom type(s) for hydrogen atoms in the adsorbate
+rOS = [6]    # Atom type(s) for oxygen atoms in the adsorbate
+rHW = [1]    # Atom type(s) for hydrogen atoms in water
+rOW = [2]    # Atom type(s) for oxygen atoms in water
+########################################################################################
 
 def dist(X,Y): # square of distance
     x1 = X[1]
@@ -313,7 +312,3 @@ if __name__ == '__main__':
     np.savetxt("distribution_HB_lifetime.dat", hb_distribution, fmt="%d")
 #    f = open('avg_HB_lifetime.dat', 'w')
 #    f.write('   '.join((m_distribution, h_distribution)))
-#########################################################################################################################################################
-
-
-
