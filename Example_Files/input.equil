@@ -37,7 +37,7 @@ group               slab type 1 2 3 4 5
 
 pair_style          lj/cut/coul/long 7.0
 # pair_modify         tail yes  # Do not use tail if you have small cell
-kspace_style        pppm 1.0e-6
+kspace_style        pppm 1.0e-4
 
 
 neighbor            2.0 bin
@@ -52,7 +52,7 @@ fix                 freezeSlab slab rigid single force * off off off torque * of
 
 print "------------ beginning minimization ------------"
 minimize            1.0e-8  1.0e-10 5000000 5000000 
-write_data          data.${name}_min
+#write_data          data.${name}_min
 
 
 print "------------ beginning equilibration (const Vol)------------"
@@ -70,8 +70,8 @@ thermo_style        custom step temp pe etotal press vol lz
 
 run                 5000000 # modify as needed
 
-write_data          data.${name}_eq
-write_restart       rst.${name}_eq
+#write_data          data.${name}_eq
+#write_restart       rst.${name}_eq
 
 
 
@@ -82,8 +82,8 @@ unfix               2
 
 run                 5000000 # modify as needed
 
-write_data          data.${name}_nve
-write_restart       rst.${name}_nve
+#write_data          data.${name}_nve
+#write_restart       rst.${name}_nve
 
 
 print "------------ beginning npt (use drag)------------"
@@ -103,8 +103,8 @@ thermo_style        custom step etotal c_tempMobile c_pressMobile temp press vol
 fix_modify          1 temp tempMobile
 
 ####### check your H2O density using following output file ########
-compute             wdensity water chunk/atom bin/1d z 0.0 0.001 units reduced
-fix                 4 water ave/chunk 1000 1 1000 wdensity density/mass ave running file wd.profile
+#compute             wdensity water chunk/atom bin/1d z 0.0 0.001 units reduced
+#fix                 4 water ave/chunk 1000 1 1000 wdensity density/mass ave running file wd.profile
 
 
 dump                1 all atom ${dumpFreq} dump.${name}_npt.lammpstrj
