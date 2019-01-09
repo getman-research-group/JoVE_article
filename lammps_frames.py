@@ -46,7 +46,7 @@ def read_output(log_fn, production_start='2000000'):
 
     for line in log_file:
 
-        if line.startswith('------------ beginning nvt ----------------------------------'):
+        if line.startswith('------------ beginning nvt ------------'):
             section = 'nvt'
             continue
 
