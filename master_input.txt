@@ -25,6 +25,6 @@ Max iterations: 5
 Maximum translation distance [A]: 1
 
 Number of different types of fluid molecules: 1
-24 water.pdb
+24 water.txt
 
 
