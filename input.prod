@@ -83,7 +83,7 @@ run                 5000000 # modify as needed
 #write_restart       rst.${name}_nve
 
 
-print "------------ beginning nvt ----------------------------------"
+print "------------ beginning nvt ------------"
 reset_timestep      0
 unfix               1
 
