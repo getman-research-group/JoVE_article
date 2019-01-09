@@ -32,8 +32,8 @@ read_data           data.${name}
 # read_restart        restart.${name}.*
 
 
-group               water type 5 6        # Atom types from the data file for oxygen and hydrogen atoms in water (rOW, rHW)
-group               slab type 1 2 3 4     # Atom types from the data file for all atoms in the Pt slab and adsorbate (Pt, rC, rOS, rHS, i.e., everything but water)
+group               water type 6 7         # Atom types from the data file for oxygen and hydrogen atoms in water (rOW, rHW)
+group               slab type 1 2 3 4 5    # Atom types from the data file for all atoms in the Pt slab and adsorbate (Pt, rC, rOS, rHS, i.e., everything but water)
 
 
 pair_style          lj/cut/coul/long 7.0
