@@ -6,7 +6,7 @@ Input POSCAR name: CONTCAR
 Number of different types of surface atoms: 1
 
 Move attempt termination limit: 50
-Maximum scaling factor: 1.0
+Maximum scaling factor: 100.0
 Minimum scaling factor: 1.0
 Minimum z-coordinate: 5.5
 Maximum z-coordinate: 20.5
