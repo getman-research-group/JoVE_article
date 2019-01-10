@@ -26,8 +26,8 @@ def read_log(log_filename):
     section = ''
     subsection = ''
     
-    nvt_file = open('nvt_data.txt','w+')
-    nve_file = open('nve_data.txt','w+')
+    # nvt_file = open('nvt_data.txt','w+')
+    # nve_file = open('nve_data.txt','w+')
     npt_file = open('npt_data.txt','w+')
     
     for line in log_file:
@@ -45,25 +45,26 @@ def read_log(log_filename):
             subsection = ''
             continue
 
-        if section == 'nvt':
-            if line.startswith('Step'):
-                subsection = 'nvt_data'
-                line_data = line.split()
-                nvt_temp_index = line_data.index('Temp')
-                step = line_data[0]
-                temp = line_data[nvt_temp_index]
-                nvt_file.write('%-10s %-10s \n' % (step, temp))
-                continue
-        elif section == 'nve':
-            if line.startswith('Step'):
-                subsection = 'nve_data'
-                line_data = line.split()
-                nve_enrg_index = line_data.index('TotEng')
-                step = line_data[0]
-                enrg = line_data[nve_enrg_index]
-                nve_file.write('%-10s %-10s \n' % (step, enrg))
-                continue
-        elif section == 'npt':
+        # if section == 'nvt':
+        #     if line.startswith('Step'):
+        #         subsection = 'nvt_data'
+        #         line_data = line.split()
+        #         nvt_temp_index = line_data.index('Temp')
+        #         step = line_data[0]
+        #         temp = line_data[nvt_temp_index]
+        #         nvt_file.write('%-10s %-10s \n' % (step, temp))
+        #         continue
+        # elif section == 'nve':
+        #     if line.startswith('Step'):
+        #         subsection = 'nve_data'
+        #         line_data = line.split()
+        #         nve_enrg_index = line_data.index('TotEng')
+        #         step = line_data[0]
+        #         enrg = line_data[nve_enrg_index]
+        #         nve_file.write('%-10s %-10s \n' % (step, enrg))
+        #         continue
+        # elif section == 'npt':
+        if section == 'npt':
             if line.startswith('Step'):
                 subsection = 'npt_data'
                 line_data = line.split()
@@ -73,60 +74,61 @@ def read_log(log_filename):
                 npt_file.write('%-10s %-10s \n' % (step, lz))
                 continue
 
-        if subsection == 'nvt_data':
-            line_data = line.split()
-            step = line_data[0]
-            temp = line_data[nvt_temp_index]
-            nvt_file.write('%-10s %-10s \n' % (step, temp))
-        elif subsection == 'nve_data':
-            line_data = line.split()
-            step = line_data[0]
-            enrg = line_data[nve_enrg_index]
-            nve_file.write('%-10s %-10s \n' % (step, enrg))
-        elif subsection == 'npt_data':
+        # if subsection == 'nvt_data':
+        #     line_data = line.split()
+        #     step = line_data[0]
+        #     temp = line_data[nvt_temp_index]
+        #     nvt_file.write('%-10s %-10s \n' % (step, temp))
+        # elif subsection == 'nve_data':
+        #     line_data = line.split()
+        #     step = line_data[0]
+        #     enrg = line_data[nve_enrg_index]
+        #     nve_file.write('%-10s %-10s \n' % (step, enrg))
+        # elif subsection == 'npt_data':
+        if subsection == 'npt_data':
             line_data = line.split()
             step = line_data[0]
             lz   = line_data[npt_lz_index]
             npt_file.write('%-10s %-10s \n' % (step, lz))
 
     log_file.close()
-    nvt_file.close()
-    nve_file.close()
+    # nvt_file.close()
+    # nve_file.close()
     npt_file.close()
 
 read_log(log_filename)
 
 plt.switch_backend('agg')
 
-x = []
-y = []
-with open('nvt_data.txt') as f:
-    header = f.readline()
-    lines = f.readlines()
-    x = [int(line.split()[0]) for line in lines]
-    y = [float(line.split()[1]) for line in lines]
-fig = plt.figure()
-plt.plot(x, y)
-plt.title('NVT Temp vs. Step')
-plt.xlabel('Time Step')
-plt.ylabel('Temperature [K]')
-plt.savefig('nvt_plot.png')
-plt.close(fig)
+# x = []
+# y = []
+# with open('nvt_data.txt') as f:
+#     header = f.readline()
+#     lines = f.readlines()
+#     x = [int(line.split()[0]) for line in lines]
+#     y = [float(line.split()[1]) for line in lines]
+# fig = plt.figure()
+# plt.plot(x, y)
+# plt.title('NVT Temp vs. Step')
+# plt.xlabel('Time Step')
+# plt.ylabel('Temperature [K]')
+# plt.savefig('nvt_plot.png')
+# plt.close(fig)
 
-x = []
-y = []
-with open('nve_data.txt') as f:
-    header = f.readline()
-    lines = f.readlines()
-    x = [int(line.split()[0]) for line in lines]
-    y = [float(line.split()[1]) for line in lines]
-fig = plt.figure()
-plt.plot(x, y)
-plt.title('NVE Energy vs. Step')
-plt.xlabel('Time Step')
-plt.ylabel('Energy [eV]')
-plt.savefig('nve_plot.png')
-plt.close(fig)
+# x = []
+# y = []
+# with open('nve_data.txt') as f:
+#     header = f.readline()
+#     lines = f.readlines()
+#     x = [int(line.split()[0]) for line in lines]
+#     y = [float(line.split()[1]) for line in lines]
+# fig = plt.figure()
+# plt.plot(x, y)
+# plt.title('NVE Energy vs. Step')
+# plt.xlabel('Time Step')
+# plt.ylabel('Energy [eV]')
+# plt.savefig('nve_plot.png')
+# plt.close(fig)
 
 x = []
 y = []
@@ -146,5 +148,3 @@ plt.close(fig)
 with open('avg_lz.txt','w+') as f:
     f.write('The average Lz is: %.16f\n' % np.mean(np.array(y[first_production_Lz:])))
     f.write('The Lz st.dev. is: %.16f\n' % np.std(np.array(y[first_production_Lz:])))
-
-
