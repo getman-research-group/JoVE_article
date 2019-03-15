@@ -5,7 +5,6 @@
 units               real
 boundary            p p p
 
-
 #### change variable value as needed in your own system ####
 variable            name string ch2oh
 variable            temp equal 300.0
